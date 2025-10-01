@@ -1,0 +1,95 @@
+/* Global styling */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    color: #fff;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: 600px;
+    width: 90%;
+}
+
+h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    color: #ffe66d;
+}
+
+.subtitle {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #e4e4e4;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.file-input {
+    margin: 10px 0 20px;
+    padding: 10px;
+    border-radius: 6px;
+    border: 2px dashed #ffe66d;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+}
+
+.file-input:hover {
+    border-color: #ffd23f;
+}
+
+.preview {
+    max-width: 280px;
+    border-radius: 12px;
+    margin-top: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #ff9966, #ff5e62);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.result {
+    margin-top: 20px;
+    font-weight: bold;
+    white-space: pre-wrap;
+    display: inline-block;
+    text-align: left;
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.4);
+    max-width: 90%;
+    word-wrap: break-word;
+}
+
+.highlight {
+    color: #ffe66d;
+    font-size: 1.2rem;
+}

@@ -5,52 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electronic Component Recognizer</title>
-    <style>
-        body {
-            font-family: Arial;
-            text-align: center;
-            margin: 40px;
-        }
-
-        img {
-            max-width: 300px;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-
-        .result {
-            margin-top: 20px;
-            font-weight: bold;
-            white-space: pre-wrap;
-            display: inline-block;
-            text-align: left;
-        }
-
-        button {
-            margin-top: 15px;
-            padding: 10px 20px;
-            font-size: 1em;
-            border-radius: 6px;
-            background: #007bff;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="container">
+        <h1>🔌 Electronic Component Recognizer</h1>
+        <p class="subtitle">Upload an image of an electronic component to identify it instantly.</p>
 
-    <h1>Electronic Component Recognizer</h1>
-    <input type="file" id="fileInput" accept="image/*">
-    <img id="preview" style="display:none;">
-    <button id="predictBtn">Predict</button>
-    <div class="result" id="result"></div>
+        <div class="card">
+            <input type="file" id="fileInput" accept="image/*" class="file-input">
+            <img id="preview" class="preview" style="display:none;">
+            <button id="predictBtn">⚡ Predict</button>
+            <div class="result" id="result"></div>
+        </div>
+    </div>
 
     <script>
         const fileInput = document.getElementById('fileInput');
@@ -94,16 +63,17 @@
                 const label = data[0].label;
                 const confidences = data[0].confidences;
                 let confText = "";
-                confidences.forEach(c => { confText += `${c.label}: ${(c.confidence * 100).toFixed(2)}%\n`; });
+                confidences.forEach(c => {
+                    confText += `${c.label}: ${(c.confidence * 100).toFixed(2)}%\n`;
+                });
 
-                resultDiv.innerHTML = `<p>Prediction: ${label}</p><pre>${confText}</pre>`;
+                resultDiv.innerHTML = `<p>Result: <span class="highlight">${label}</span></p>`
             } catch (err) {
                 console.error(err);
                 resultDiv.innerText = "Error: " + err.message;
             }
         });
     </script>
-
 </body>
 
 </html>
