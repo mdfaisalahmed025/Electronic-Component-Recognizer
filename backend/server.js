@@ -1,15 +1,15 @@
 import express from "express";
 import multer from "multer";
-import fs from "fs";
-import { Client } from "@gradio/client";
+import { Client, handle_file } from "@gradio/client"; // note: handle_file is needed
 import path from "path";
 
 const app = express();
 const port = 3000;
 
-// Configure multer to handle file uploads
-const upload = multer({ dest: "uploads/" });
-// Serve static files (HTML frontend)
+// Configure multer to keep files in memory instead of saving
+const upload = multer({ storage: multer.memoryStorage() });
+
+// Serve static files
 app.use(express.static("../public"));
 
 let gradioClient;
@@ -19,20 +19,15 @@ let gradioClient;
   );
 })();
 
-// POST endpoint to handle image upload
+// POST endpoint (no disk save)
 app.post("/predict", upload.single("image"), async (req, res) => {
   if (!req.file) return res.status(400).json({ error: "No file uploaded" });
 
   try {
-    const imageBuffer = fs.readFileSync(req.file.path);
-
-    // Call Gradio Space
+    // req.file.buffer contains the raw image data in memory
     const result = await gradioClient.predict("/predict", {
-      image: imageBuffer,
+      image: handle_file(req.file.buffer, req.file.originalname),
     });
-
-    // Delete temporary uploaded file
-    fs.unlinkSync(req.file.path);
 
     res.json(result.data);
   } catch (err) {
@@ -40,10 +35,11 @@ app.post("/predict", upload.single("image"), async (req, res) => {
     res.status(500).json({ error: "Prediction failed", details: err.message });
   }
 });
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
 
+// Serve index.html
+app.get("/", (req, res) => {
+  res.sendFile(path.join(process.cwd(), "public", "index.html"));
+});
 
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
