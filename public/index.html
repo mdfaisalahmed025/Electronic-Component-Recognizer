@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronic Component Recognizer</title>
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin: 40px;
+        }
+
+        img {
+            max-width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+            white-space: pre-wrap;
+            display: inline-block;
+            text-align: left;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            font-size: 1em;
+            border-radius: 6px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Electronic Component Recognizer</h1>
+    <input type="file" id="fileInput" accept="image/*">
+    <img id="preview" style="display:none;">
+    <button id="predictBtn">Predict</button>
+    <div class="result" id="result"></div>
+
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const preview = document.getElementById('preview');
+        const resultDiv = document.getElementById('result');
+        let selectedFile = null;
+
+        fileInput.addEventListener('change', e => {
+            const file = e.target.files[0];
+            if (!file) return;
+            selectedFile = file;
+            const reader = new FileReader();
+            reader.onload = ev => {
+                preview.src = ev.target.result;
+                preview.style.display = "block";
+            };
+            reader.readAsDataURL(file);
+        });
+
+        document.getElementById('predictBtn').addEventListener('click', async () => {
+            if (!selectedFile) { alert("Please upload an image first!"); return; }
+
+            const formData = new FormData();
+            formData.append("image", selectedFile);
+
+            try {
+                const response = await fetch("/predict", {
+                    method: "POST",
+                    body: formData
+                });
+
+                if (!response.ok) throw new Error("Server returned " + response.status);
+
+                const data = await response.json();
+
+                if (!data || data.length === 0) {
+                    resultDiv.innerText = "No prediction returned.";
+                    return;
+                }
+
+                const label = data[0].label;
+                const confidences = data[0].confidences;
+                let confText = "";
+                confidences.forEach(c => { confText += `${c.label}: ${(c.confidence * 100).toFixed(2)}%\n`; });
+
+                resultDiv.innerHTML = `<p>Prediction: ${label}</p><pre>${confText}</pre>`;
+            } catch (err) {
+                console.error(err);
+                resultDiv.innerText = "Error: " + err.message;
+            }
+        });
+    </script>
+
+</body>
+
+</html>
