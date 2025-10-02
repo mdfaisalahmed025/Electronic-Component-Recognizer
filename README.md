@@ -42,7 +42,7 @@ Building a reliable dataset was the most challenging and time-consuming part of 
 - **Data Augmentation:**  
   fastai provides default GPU-based data augmentation such as rotations, zoom, lighting adjustments, and flipping. These augmentations helped improve the robustness of the model and prevented overfitting.
 
-## More details, including preprocessing steps and data inspection, are documented in `notebooks/data_collection_and_pre_proccessing_and_training_latest.ipynb`
+ More details, including preprocessing steps and data inspection, are documented in `notebooks/data_collection_and_pre_proccessing_and_training_latest.ipynb`
 
 # Training and Data Cleaning
 
