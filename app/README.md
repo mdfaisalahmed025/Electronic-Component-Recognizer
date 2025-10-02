@@ -11,4 +11,6 @@ pinned: false
 
 Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
 
-Hugging face url :https://huggingface.co/spaces/mdfaisalahmed025/electronic-component-recognizer
+Hugging face sapce app url :https://huggingface.co/spaces/mdfaisalahmed025/electronic-component-recognizer
+
+Gradio App URL : https://9de957b2f9a381f61c.gradio.live

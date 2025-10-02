@@ -67,7 +67,11 @@ Once the model reached satisfactory performance, it was deployed to **Hugging Fa
 - Implementation scripts for deployment can be found in the `deployment` folder.
 
 <p align="center">
-  <img src="app/gradio_app.png" width="700" height="350" alt="Gradio App Screenshot"/>
+  <img src="app/gradio_app.png" width="750" height="400" alt="Gradio App Screenshot"/>
+</p>
+
+<p align="center">
+  <img src="app/app page .png" width="750" height="400" alt="Gradio App Screenshot"/>
 </p>
 
 ---
