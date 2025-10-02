@@ -66,13 +66,16 @@ Once the model reached satisfactory performance, it was deployed to **Hugging Fa
 - The deployed model can be accessed here: [HuggingFace Space](https://huggingface.co/spaces/mdfaisalahmed025/electronic-component-recognizer).
 - Implementation scripts for deployment can be found in the `deployment` folder.
 
+## Interactive Gradio Interface for Component Recognition
 <p align="center">
   <img src="app/gradio_app.png" width="750" height="400" alt="Gradio App Screenshot"/>
 </p>
 
+## Deployed Application Web Page
 <p align="center">
-  <img src="app/app page .png" width="750" height="400" alt="Gradio App Screenshot"/>
+  <img src="app/app page .png" width="750" height="400" alt="Application Web Page Screenshot"/>
 </p>
+
 
 ---
 
