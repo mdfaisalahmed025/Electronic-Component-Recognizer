@@ -3,6 +3,12 @@ title: Home
 layout: page
 ---
 
+# 🔌 Electronic Component Recognizer
+
+The goal of this project is to classify 20 different types of electronic components.
+
+{% include_relative upload.html %}
+
 # Electronic Component Recognizer
 
 The goal of this project is to classify 20 different types of electronic <br>
