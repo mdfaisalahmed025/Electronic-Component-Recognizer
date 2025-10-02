@@ -7,13 +7,9 @@ layout: page
 
 The goal of this project is to classify 20 different types of electronic components.
 
-{% include_relative index.html %}
+{% include index.html %}
 
-# Electronic Component Recognizer
-
-The goal of this project is to classify 20 different types of electronic <br>
-components commonly used in circuits and devices. The types are as follows:<br>
-
+# Supported Components
 1. Resistor
 2. Capacitor
 3. Diode
