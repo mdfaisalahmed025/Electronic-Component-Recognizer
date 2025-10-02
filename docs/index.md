@@ -7,7 +7,7 @@ layout: page
 
 The goal of this project is to classify 20 different types of electronic components.
 
-{% include_relative upload.html %}
+{% include_relative index.html %}
 
 # Electronic Component Recognizer
 
