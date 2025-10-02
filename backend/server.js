@@ -10,7 +10,7 @@ const port = 3000;
 const upload = multer({ storage: multer.memoryStorage() });
 
 // Serve static files
-app.use(express.static("../public"));
+app.use(express.static("../docs"));
 
 let gradioClient;
 (async () => {
