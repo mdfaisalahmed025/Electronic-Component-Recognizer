@@ -10,6 +10,7 @@ The goal of this project is to classify 20 different types of electronic compone
 {% include index.html %}
 
 # Supported Components
+
 1. Resistor
 2. Capacitor
 3. Diode
