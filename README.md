@@ -88,7 +88,7 @@ To make the model more accessible and user-friendly, the deployed Hugging Face A
 - The image is sent to the Hugging Face API endpoint, which returns predictions that are displayed on the page.
 - This provides a clean and interactive frontend for the model without requiring users to install anything locally.
 
-🔗 Live Demo: [Electronic Component Recognizer Website](https://mdfaisalahmed025.github.io/Electronic-component-Identifier/)
+🔗 Live Demo: [Electronic Component Recognizer Website](https://mdfaisalahmed025.github.io/Electronic-Component-Recognizer/)
 
 The website implementation and scripts for API communication can be found in the `docs` and `backend` folder.
 
