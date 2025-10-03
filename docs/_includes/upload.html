@@ -6,6 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Electronic Component Recognizer</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module">
+        import { Client, handle_file } from "https://cdn.jsdelivr.net/npm/@gradio/client/dist/index.min.js";
+
+        let gradioClient;
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            // Connect to your Hugging Face Space
+            gradioClient = await Client.connect("mdfaisalahmed025/electronic-component-recognizer");
+
+            const fileInput = document.getElementById("fileInput");
+            const preview = document.getElementById("preview");
+            const resultDiv = document.getElementById("result");
+            let selectedFile = null;
+
+            fileInput.addEventListener("change", e => {
+                const file = e.target.files[0];
+                if (!file) return;
+                selectedFile = file;
+                const reader = new FileReader();
+                reader.onload = ev => {
+                    preview.src = ev.target.result;
+                    preview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+            });
+
+            document.getElementById("predictBtn").addEventListener("click", async () => {
+                if (!selectedFile) {
+                    alert("Please upload an image first!");
+                    return;
+                }
+
+                try {
+                    // Send file to Gradio Space
+                    const prediction = await gradioClient.predict("/predict", [handle_file(selectedFile)]);
+
+                    // Format result
+                    let label = prediction.data[0].label || "Unknown";
+                    let confidences = prediction.data[0].confidences || [];
+                    let confText = confidences.map(c => `${c.label}: ${(c.confidence * 100).toFixed(2)}%`).join("<br>");
+
+                    resultDiv.innerHTML = `
+            <p>Result: <span class="highlight">${label}</span></p>
+          `;
+                } catch (err) {
+                    console.error(err);
+                    resultDiv.innerText = "Error: " + err.message;
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -20,60 +71,6 @@
             <div class="result" id="result"></div>
         </div>
     </div>
-
-    <script>
-        const fileInput = document.getElementById('fileInput');
-        const preview = document.getElementById('preview');
-        const resultDiv = document.getElementById('result');
-        let selectedFile = null;
-
-        fileInput.addEventListener('change', e => {
-            const file = e.target.files[0];
-            if (!file) return;
-            selectedFile = file;
-            const reader = new FileReader();
-            reader.onload = ev => {
-                preview.src = ev.target.result;
-                preview.style.display = "block";
-            };
-            reader.readAsDataURL(file);
-        });
-
-        document.getElementById('predictBtn').addEventListener('click', async () => {
-            if (!selectedFile) { alert("Please upload an image first!"); return; }
-
-            const formData = new FormData();
-            formData.append("image", selectedFile);
-
-            try {
-                const response = await fetch("/predict", {
-                    method: "POST",
-                    body: formData
-                });
-
-                if (!response.ok) throw new Error("Server returned " + response.status);
-
-                const data = await response.json();
-
-                if (!data || data.length === 0) {
-                    resultDiv.innerText = "No prediction returned.";
-                    return;
-                }
-
-                const label = data[0].label;
-                const confidences = data[0].confidences;
-                let confText = "";
-                confidences.forEach(c => {
-                    confText += `${c.label}: ${(c.confidence * 100).toFixed(2)}%\n`;
-                });
-
-                resultDiv.innerHTML = `<p>Result: <span class="highlight">${label}</span></p>`
-            } catch (err) {
-                console.error(err);
-                resultDiv.innerText = "Error: " + err.message;
-            }
-        });
-    </script>
 </body>
 
 </html>
