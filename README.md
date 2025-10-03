@@ -75,7 +75,7 @@ Once the model reached satisfactory performance, it was deployed to **Hugging Fa
 ## Deployed Application Web Page
 
 <p align="center">
-  <img src="app/app page .png" width="750" height="400" alt="Application Web Page Screenshot"/>
+  <img src="app/app page.png" width="750" height="400" alt="Application Web Page Screenshot"/>
 </p>
 
 ---
