@@ -7,8 +7,6 @@ layout: page
 
 The goal of this project is to classify 20 different types of electronic components.
 
-{% include upload.html %}
-
 ## Supported Components
 
 1. Resistor
