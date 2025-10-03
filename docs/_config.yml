@@ -2,13 +2,13 @@ remote_theme: daviddarnes/alembic@main
 plugins:
   - jekyll-remote-theme
 
-# Add navigation menu
-header_pages:
-  - index.md
-  - upload.md
-
 title: Electronic Component Recognizer
 description: An image classification API that classifies 20 different types of electronic components commonly used in circuits and devices
 
 author:
   name: Md Faisal Ahmed
+
+# Navigation menu
+header_pages:
+  - index.md   # Home
+  - upload.md  # Upload
