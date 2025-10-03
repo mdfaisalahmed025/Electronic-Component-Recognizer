@@ -3,9 +3,9 @@ body {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background: #f8f8f8;
-    /* light grayish background */
-    color: #111;
+    background: #f4f7fb;
+    /* soft gray-blue */
+    color: #1a1a1a;
     text-align: center;
     min-height: 100vh;
     display: flex;
@@ -14,84 +14,113 @@ body {
 }
 
 .container {
-    max-width: 600px;
-    width: 90%;
+    max-width: 650px;
+    width: 95%;
 }
 
+/* Title */
 h1 {
-    font-size: 2.2rem;
-    margin-bottom: 10px;
-    color: #111;
+    font-size: 2.4rem;
+    margin-bottom: 8px;
+    color: #0a3d62;
+    /* deep navy blue */
 }
 
 .subtitle {
     font-size: 1rem;
     margin-bottom: 20px;
-    color: #444;
+    color: #3c6382;
+    /* medium blue */
 }
 
+/* Card styling */
 .card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: #ffffff;
+    /* white base */
+    border-radius: 14px;
+    padding: 30px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
 }
 
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* File Input */
 .file-input {
-    margin: 10px 0 20px;
-    padding: 10px;
-    border-radius: 6px;
-    border: 2px dashed #555;
-    background: #fafafa;
-    color: #111;
-    cursor: pointer;
-}
-
-.file-input:hover {
-    border-color: #111;
-    background: #f0f0f0;
-}
-
-.preview {
-    max-width: 280px;
+    margin: 12px 0 22px;
+    padding: 12px;
     border-radius: 8px;
-    margin-top: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-button {
-    margin-top: 15px;
-    padding: 12px 30px;
-    font-size: 1rem;
-    border-radius: 6px;
-    background: #111;
-    color: #fff;
-    border: none;
+    border: 2px dashed #3c6382;
+    /* blue */
+    background: #f9fcff;
+    /* very light blue */
+    color: #0a3d62;
     cursor: pointer;
     transition: 0.3s ease;
 }
 
-button:hover {
-    background: #333;
-    transform: translateY(-2px);
+.file-input:hover {
+    border-color: #38ada9;
+    /* teal green */
+    background: #eefdf9;
+    /* pale green */
 }
 
+/* Preview image */
+.preview {
+    max-width: 280px;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Button */
+button {
+    margin-top: 15px;
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #38ada9, #079992);
+    /* green gradient */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #079992, #0a3d62);
+    /* blue-green blend */
+    transform: translateY(-2px) scale(1.02);
+}
+
+/* Result box */
 .result {
     margin-top: 20px;
-    font-weight: bold;
+    font-weight: 500;
     white-space: pre-wrap;
     display: inline-block;
-    text-align: left;
-    padding: 15px;
+    text-align: center;
+    padding: 12px 18px;
     border-radius: 8px;
-    background: #f1f1f1;
-    color: #111;
-    max-width: 90%;
+    background: #eef2f7;
+    border-left: 4px solid #38ada9;
+    color: #1a1a1a;
+    min-width: 180px;
+    /* same as button */
+    max-width: 220px;
+    /* don’t grow too much */
     word-wrap: break-word;
+    /* wrap long text */
 }
 
+/* Highlighted result */
 .highlight {
-    color: #000;
+    color: #079992;
+    /* teal green */
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
