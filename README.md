@@ -149,13 +149,14 @@ It has applications in **education, prototyping, inventory management, and autom
 
 This project showcases a practical workflow for turning an idea into a real, user-facing application powered by machine learning.
 
-# ⚙️ Run and Installation of the Project
 
-Follow the steps below to set up and run the **Electronic Component Recognizer** project on your local machine.
 
----
+
+
 
 # Build from source
+
+Follow the steps below to set up and run the **Electronic Component Recognizer** project on your local machine.
 
 ##  Clone the Repository
 
