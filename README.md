@@ -33,21 +33,20 @@ The model is designed to classify **20 different types of commonly used electron
 
 Building a reliable dataset was the most challenging and time-consuming part of the project.
 
-### 📸 Data Collection
+**Data Collection**: 
 A total of **3,686 images** were scraped from online sources (mainly **DuckDuckGo Image Search**) using component-specific search terms.  
 Each class was carefully named to ensure the model learns the actual characteristics of the component (e.g., *resistor*, *capacitor*, *IC chip*).
 
-- **Data Cleaning**
+**Data Cleaning**: 
 After manual inspection and filtering with the **fastai ImageClassifierCleaner**, **25 noisy or irrelevant images** were excluded (e.g., schematic diagrams, logos, and non-electronic objects).  
 The final dataset consisted of **3,661 cleaned images**.  
 
 Data cleaning was essential to improve accuracy and prevent bias from mislabeled or low-quality samples.
 
-- **DataLoader Setup**
+**DataLoader Setup**:
 The dataset was prepared using the **fastai DataBlock API**, which simplified defining training and validation splits, applying transformations, and creating the dataloaders for the training pipeline.
 
-
-- **Data Augmentation:**  
+**Data Augmentation**:
   fastai provides default GPU-based data augmentation such as rotations, zoom, lighting adjustments, and flipping. These augmentations helped improve the robustness of the model and prevented overfitting.
 
 More details, including preprocessing steps and data inspection, are documented in `notebooks/data_collection_and_pre_proccessing_and_training_latest.ipynb`
