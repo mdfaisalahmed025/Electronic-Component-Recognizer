@@ -40,38 +40,40 @@ try:
 except Exception as e:
     raise RuntimeError(f"Failed to load model: {e}")
 
-# Prediction function
 def recognize_image(image):
-    # make sure image is RGB
+    # Ensure RGB
     if image.mode != "RGB":
         image = image.convert("RGB")
 
-    # convert to fastai PILImage and predict
+    # Predict with fastai model
     img = PILImage.create(image)
     pred, idx, probs = model.predict(img)
 
-    # get labels from the learner (ensure it's a flat list)
+    # Get flat list of labels
     labels = model.dls.vocab
     if isinstance(labels[0], (list, tuple)):
         labels = labels[0]
 
+    # Map labels to float probs
     probs = list(map(float, probs))
     result = {lab: p for lab, p in zip(labels, probs)}
-    # return sorted dict so Gradio shows highest first
+
+    # Sort descending so Gradio shows top first
     return dict(sorted(result.items(), key=lambda x: x[1], reverse=True))
+
 
 # Gradio interface
 
 image = gr.Image(type="pil", height=192, width=192)
-label = gr.Label()
+label = gr.Label(num_top_classes =5)
 
 examples = [
-    'Breadboard.jpg',
-    'ic-chip.png',
-    'battery-holder.jpg',
-    'diode.png',
-    'transistor.jpg',
-    'connector.webp',
+    'test_images/Breadboard.jpg',
+    'test_images/ic-chip.png',
+    'test_images/battery-holder.jpg',
+    'test_images/diode.png',
+    'test_images/transistor.jpg',
+    'test_images/connector.webp',
 ]
 
 iface = gr.Interface(

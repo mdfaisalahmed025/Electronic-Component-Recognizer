@@ -76,14 +76,13 @@ As per project requirements, at least **three models** were trained and compared
 | **Model 2** | ResNet34 |    **97.0%**        | ~16 min | Best overall accuracy |
 | **Model 3** | EfficientNet_B0 | 96.4%        | ~20 min  | Balanced accuracy and efficiency |
 
-> ✅ **Conclusion:**  
-> ResNet34 achieved the best tradeoff between training time and accuracy.  
-> EfficientNet_B0 also performed competitively, offering slightly better efficiency but requiring more computation.  
-> Overall, the experiments demonstrate that increasing model depth and input resolution improves classification performance.
+ ✅ **Conclusion:**  
+ResNet34 achieved the best tradeoff between training time and accuracy.  
+EfficientNet_B0 also performed competitively, offering slightly better efficiency but requiring more computation.  
+ Overall, the experiments demonstrate that increasing model depth and input resolution improves classification performance.
 
-
+---
 **Confusion Matrix**
-
 To evaluate the model’s performance across different component classes, a **confusion matrix** was generated using the validation dataset.  
 It provides a visual representation of how well the model distinguishes between various component types.
 
@@ -91,10 +90,10 @@ It provides a visual representation of how well the model distinguishes between 
   <img src="/app/confusion-matrix.png" width="600" height="400" alt="Confusion Matrix"/>
 </p>
 
-> ✅ **Interpretation:**  
-> - The diagonal cells indicate correctly classified samples.  
-> - Off-diagonal values represent misclassifications between visually similar components (e.g., resistor vs. capacitor).  
-> - A strong diagonal trend shows the model achieved high precision and recall across all classes.
+ ✅ **Interpretation:**  
+- The diagonal cells indicate correctly classified samples.  
+- Off-diagonal values represent misclassifications between visually similar components (e.g., resistor vs. capacitor).  
+- A strong diagonal trend shows the model achieved high precision and recall across all classes.
 
 
 # Model Deployment
