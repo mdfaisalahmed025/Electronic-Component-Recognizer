@@ -82,13 +82,13 @@ As per project requirements, at least **three models** were trained and compared
 > Overall, the experiments demonstrate that increasing model depth and input resolution improves classification performance.
 
 
-** Confusion Matrix**
+**Confusion Matrix**
 
 To evaluate the model’s performance across different component classes, a **confusion matrix** was generated using the validation dataset.  
 It provides a visual representation of how well the model distinguishes between various component types.
 
 <p align="center">
-  <img src="/app/confusion-matrix.png" width="650" height="450" alt="Confusion Matrix"/>
+  <img src="/app/confusion-matrix.png" width="600" height="400" alt="Confusion Matrix"/>
 </p>
 
 > ✅ **Interpretation:**  
@@ -148,3 +148,30 @@ The **Electronic Component Recognizer** demonstrates the power of transfer learn
 It has applications in **education, prototyping, inventory management, and automated electronic system design**.
 
 This project showcases a practical workflow for turning an idea into a real, user-facing application powered by machine learning.
+
+# ⚙️ Run and Installation of the Project
+
+Follow the steps below to set up and run the **Electronic Component Recognizer** project on your local machine.
+
+---
+
+# Build from source
+
+##  Clone the Repository
+
+```bash
+git clone https://github.com/mdfaisalahmed025/Electronic-Component-Recognizer.git
+cd Electronic-Component-Recognizer
+
+## Install dependencies
+
+```bash
+pip install -U pip
+pip install -r requirements.txt
+
+
+# 📞 Contact / Author
+
+**Project Maintainer:** Md Faisal Ahmed  
+**Portfolio:** [mdfaisalahmed.online](https://mdfaisalahmed.online/)  
+**GitHub:** [@mdfaisalahmed025](https://github.com/mdfaisalahmed025)  
