@@ -87,7 +87,7 @@ To evaluate the model’s performance across different component classes, a **co
 It provides a visual representation of how well the model distinguishes between various component types.
 
 <p align="center">
-  <img src="/app/confusion-matrix.png" width="600" height="400" alt="Confusion Matrix"/>
+  <img src="/images/confusion-matrix.png" width="650" height="450" alt="Confusion Matrix"/>
 </p>
 
  ✅ **Interpretation:**  
@@ -107,13 +107,13 @@ Once the model reached satisfactory performance, it was deployed to **Hugging Fa
 ## Interactive Gradio Interface for Component Recognition
 
 <p align="center">
-  <img src="app/gradio_app.png" width="750" height="400" alt="Gradio App Screenshot"/>
+  <img src="images/gradio_app.png" width="750" height="400" alt="Gradio App Screenshot"/>
 </p>
 
 ## Deployed Application Web Page
 
 <p align="center">
-  <img src="app/app page.png" width="750" height="400" alt="Application Web Page Screenshot"/>
+  <img src="images/app page.png" width="750" height="400" alt="Application Web Page Screenshot"/>
 </p>
 
 ---
