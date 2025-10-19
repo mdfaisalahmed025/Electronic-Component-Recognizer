@@ -74,7 +74,7 @@ As per project requirements, at least **three models** were trained and compared
 |:------|:--------------|:--------------------|:---------------|:---------|
 | **Model 1** | ResNet50 |      83.8%          | ~10 min | Baseline model |
 | **Model 2** | ResNet34 |    **97.0%**        | ~16 min | Best overall accuracy |
-| **Model 3** | EfficientNet_B0 | 96.4%        | ~20 min  | Balanced accuracy and efficiency |
+| **Model 3** | EfficientNet_B0 | 68.4%        | ~20 min  | Balanced accuracy and efficiency |
 
  ✅ **Conclusion:**  
 ResNet34 achieved the best tradeoff between training time and accuracy.  
