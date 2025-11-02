@@ -33,13 +33,13 @@ The model is designed to classify **20 different types of commonly used electron
 
 Building a reliable dataset was the most challenging and time-consuming part of the project.
 
-**Data Collection**: 
+**Data Collection**:
 A total of **3,686 images** were scraped from online sources (mainly **DuckDuckGo Image Search**) using component-specific search terms.  
-Each class was carefully named to ensure the model learns the actual characteristics of the component (e.g., *resistor*, *capacitor*, *IC chip*).
+Each class was carefully named to ensure the model learns the actual characteristics of the component (e.g., _resistor_, _capacitor_, _IC chip_).
 
-**Data Cleaning**: 
+**Data Cleaning**:
 After manual inspection and filtering with the **fastai ImageClassifierCleaner**, **25 noisy or irrelevant images** were excluded (e.g., schematic diagrams, logos, and non-electronic objects).  
-The final dataset consisted of **3,661 cleaned images**.  
+The final dataset consisted of **3,661 cleaned images**.
 
 Data cleaning was essential to improve accuracy and prevent bias from mislabeled or low-quality samples.
 
@@ -47,7 +47,7 @@ Data cleaning was essential to improve accuracy and prevent bias from mislabeled
 The dataset was prepared using the **fastai DataBlock API**, which simplified defining training and validation splits, applying transformations, and creating the dataloaders for the training pipeline.
 
 **Data Augmentation**:
-  fastai provides default GPU-based data augmentation such as rotations, zoom, lighting adjustments, and flipping. These augmentations helped improve the robustness of the model and prevented overfitting.
+fastai provides default GPU-based data augmentation such as rotations, zoom, lighting adjustments, and flipping. These augmentations helped improve the robustness of the model and prevented overfitting.
 
 More details, including preprocessing steps and data inspection, are documented in `notebooks/data_collection_and_pre_proccessing_and_training_latest.ipynb`
 
@@ -65,23 +65,23 @@ After several iterations, the model achieved **97%** validation accuracy. This d
 
 ---
 
-
 ## 📊 Model Benchmarking
 
 As per project requirements, at least **three models** were trained and compared to evaluate performance and generalization capability.
 
-| Model | Architecture |      Validation Accuracy | Training Time | Remarks |
-|:------|:--------------|:--------------------|:---------------|:---------|
-| **Model 1** | ResNet50 |      83.8%          | ~10 min | Baseline model |
-| **Model 2** | ResNet34 |    **97.0%**        | ~16 min | Best overall accuracy |
-| **Model 3** | EfficientNet_B0 | 68.4%        | ~20 min  | Balanced accuracy and efficiency |
+| Architecture        | Validation Accuracy | Training Time | Epochs | Remarks                          |
+| :------------------ | :------------------ | :------------ | :----- | :------------------------------- |
+| **ResNet50**        | 83.8%               | ~10 min       | 15     | Baseline model                   |
+| **ResNet34**        | **97.0%**           | ~16 min       | 12     | Best overall accuracy            |
+| **EfficientNet_B0** | 66.4%               | ~20 min       | 15     | Balanced accuracy and efficiency |
 
- ✅ **Conclusion:**  
+✅ **Conclusion:**  
 ResNet34 achieved the best tradeoff between training time and accuracy.  
 EfficientNet_B0 also performed competitively, offering slightly better efficiency but requiring more computation.  
  Overall, the experiments demonstrate that increasing model depth and input resolution improves classification performance.
 
 ---
+
 **Confusion Matrix**
 To evaluate the model’s performance across different component classes, a **confusion matrix** was generated using the validation dataset.  
 It provides a visual representation of how well the model distinguishes between various component types.
@@ -90,11 +90,11 @@ It provides a visual representation of how well the model distinguishes between 
   <img src="/images/confusion-matrix.png" width="650" height="450" alt="Confusion Matrix"/>
 </p>
 
- ✅ **Interpretation:**  
-- The diagonal cells indicate correctly classified samples.  
-- Off-diagonal values represent misclassifications between visually similar components (e.g., resistor vs. capacitor).  
-- A strong diagonal trend shows the model achieved high precision and recall across all classes.
+✅ **Interpretation:**
 
+- The diagonal cells indicate correctly classified samples.
+- Off-diagonal values represent misclassifications between visually similar components (e.g., resistor vs. capacitor).
+- A strong diagonal trend shows the model achieved high precision and recall across all classes.
 
 # Model Deployment
 
@@ -148,18 +148,13 @@ It has applications in **education, prototyping, inventory management, and autom
 
 This project showcases a practical workflow for turning an idea into a real, user-facing application powered by machine learning.
 
-
-
-
-
-
 # Build from source
 
 Follow the steps below to set up and run the **Electronic Component Recognizer** project on your local machine.
 
-##  Clone the Repository
+## Clone the Repository
 
-```bash
+````bash
 git clone https://github.com/mdfaisalahmed025/Electronic-Component-Recognizer.git
 cd Electronic-Component-Recognizer
 
@@ -172,6 +167,7 @@ pip install -r requirements.txt
 
 # 📞 Contact / Author
 
-**Project Maintainer:** Md Faisal Ahmed  
-**Portfolio:** [mdfaisalahmed.online](https://mdfaisalahmed.online/)  
-**GitHub:** [@mdfaisalahmed025](https://github.com/mdfaisalahmed025)  
+**Project Maintainer:** Md Faisal Ahmed
+**Portfolio:** [mdfaisalahmed.online](https://mdfaisalahmed.online/)
+**GitHub:** [@mdfaisalahmed025](https://github.com/mdfaisalahmed025)
+````
