@@ -170,13 +170,11 @@ Follow the steps below to set up and run the **Electronic Component Recognizer**
 
 ## Clone the Repository
 
-````bash
 git clone https://github.com/mdfaisalahmed025/Electronic-Component-Recognizer.git
 cd Electronic-Component-Recognizer
 
 ## Install dependencies
 
-```bash
 pip install -U pip
 pip install -r requirements.txt
 
@@ -186,4 +184,4 @@ pip install -r requirements.txt
 **Project Maintainer:** Md Faisal Ahmed
 **Portfolio:** [mdfaisalahmed.online](https://mdfaisalahmed.online/)
 **GitHub:** [@mdfaisalahmed025](https://github.com/mdfaisalahmed025)
-````
+
