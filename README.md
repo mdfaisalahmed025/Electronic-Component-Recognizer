@@ -29,39 +29,57 @@ The model is designed to classify **20 different types of commonly used electron
 
 ---
 
-## 🧾 Dataset Preparation
+# 🧾 Dataset Preparation & Model Training
 
-Building a reliable dataset was the most challenging and time-consuming part of the project.
+## Dataset Preparation
 
-**Data Collection**:
-A total of **3,686 images** were scraped from online sources (mainly **DuckDuckGo Image Search**) using component-specific search terms.  
-Each class was carefully named to ensure the model learns the actual characteristics of the component (e.g., _resistor_, _capacitor_, _IC chip_).
+### 📌 Data Collection
 
-**Data Cleaning**:
-After manual inspection and filtering with the **fastai ImageClassifierCleaner**, **25 noisy or irrelevant images** were excluded (e.g., schematic diagrams, logos, and non-electronic objects).  
-The final dataset consisted of **3,661 cleaned images**.
+- Scraped **3,686 images** from online sources (mainly **DuckDuckGo Image Search**).
+- Used **component-specific search terms** (e.g., _resistor_, _capacitor_, _IC chip_).
+- Ensured proper class naming to help the model learn true visual characteristics.
 
-Data cleaning was essential to improve accuracy and prevent bias from mislabeled or low-quality samples.
+### 🧹 Data Cleaning
 
-**DataLoader Setup**:
-The dataset was prepared using the **fastai DataBlock API**, which simplified defining training and validation splits, applying transformations, and creating the dataloaders for the training pipeline.
+- Manually inspected and filtered images using **fastai’s ImageClassifierCleaner**.
+- Removed **25 noisy / irrelevant images** (schematics, logos, unrelated objects).
+- Final dataset size: **3,661 cleaned images**.
+- Cleaning improved accuracy and reduced mislabeled bias.
 
-**Data Augmentation**:
-fastai provides default GPU-based data augmentation such as rotations, zoom, lighting adjustments, and flipping. These augmentations helped improve the robustness of the model and prevented overfitting.
+### ⚙️ DataLoader Setup
 
-More details, including preprocessing steps and data inspection, are documented in `notebooks/data_collection_and_pre_proccessing_and_training_latest.ipynb`
+- Used **fastai DataBlock API** for:
+  - Train/validation split
+  - Applying transformations
+  - Creating dataloaders for training pipeline
 
-# Training and Data Cleaning
+### 🎨 Data Augmentation
 
-- **Model Training:**  
-  A **ResNet34** convolutional neural network, pre-trained on ImageNet, was fine-tuned on our dataset. The model was trained for multiple epochs in different cycles, each time improving accuracy and reducing validation loss.
+- fastai default **GPU-based augmentations** applied:
+  - Rotations
+  - Zoom
+  - Lighting adjustments
+  - Flipping (horizontal/vertical)
+- Improved model generalization and reduced overfitting.
 
-After several iterations, the model achieved **97%** validation accuracy. This demonstrates the model’s robustness and strong generalization capabilities, even when trained on a noisy and diverse dataset
+> 📄 More details, including preprocessing steps and data inspection, are documented in `notebooks/data_collection_and_pre_proccessing_and_training_latest.ipynb`
 
-- **Data Cleaning:**  
-  Data cleaning was the most time-intensive step. Since the dataset was web-scraped, many irrelevant or noisy images were included (for example, schematic diagrams, logos, or unrelated objects).  
-  The **fastai ImageClassifierCleaner** was used after each training cycle to manually review and remove incorrect or misleading samples.  
-  This iterative process of _train → clean → retrain_ significantly improved the model’s performance and generalization ability.
+---
+
+## Training & Data Cleaning
+
+### 🛠️ Model Training
+
+- **ResNet34** convolutional neural network, pre-trained on ImageNet.
+- Fine-tuned with multiple epochs and iterative cycles.
+- Achieved **97% validation accuracy**, demonstrating robustness and strong generalization.
+
+### 🧹 Iterative Data Cleaning
+
+- Web-scraped dataset contained noisy images (schematics, logos, unrelated objects).
+- **fastai ImageClassifierCleaner** used after each training cycle.
+- Workflow: **Train → Clean → Retrain**
+- Each cycle significantly improved model performance and reduced errors.
 
 ---
 
