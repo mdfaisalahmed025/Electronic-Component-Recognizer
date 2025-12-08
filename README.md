@@ -62,8 +62,6 @@ The model is designed to classify **20 different types of commonly used electron
   - Flipping (horizontal/vertical)
 - Improved model generalization and reduced overfitting.
 
-> 📄 More details, including preprocessing steps and data inspection, are documented in `notebooks/data_collection_and_pre_proccessing_and_training_latest.ipynb`
-
 ---
 
 ## Training & Data Cleaning
