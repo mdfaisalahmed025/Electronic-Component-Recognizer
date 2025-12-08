@@ -16,6 +16,41 @@
             display: block;
             /* only active section visible */
         }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+            padding: 10px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+
+        .card-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 5px;
+        }
     </style>
 </head>
 
@@ -32,95 +67,140 @@
         </nav>
     </header>
 
-    <!-- Home Section -->
-    <section id="home">
-        <div class="container">
-            <h2>Welcome to the Component Recognizer</h2>
-            <p>This project identifies 20 different electronic components using AI-powered image classification.</p>
+    <main>
+        <!-- Home Section -->
+        <section id="home">
+            <div class="container">
+                <h2>Welcome to the Component Recognizer</h2>
+                <p>This project identifies 20 different electronic components using AI-powered image classification.</p>
 
-            <h3>📌 About This Project</h3>
-            <p>
-                This project is an end-to-end pipeline for building an image classification system that can recognize
-                and
-                classify electronic components.
-                It covers the entire workflow — from <strong>data collection, data cleaning, training, evaluation, and
-                    deployment</strong> to <strong>API integration with a live demo</strong>.
-            </p>
-            <p>
-                The model is designed to classify <strong>20 different types of commonly used electronic
-                    components</strong>
-                in circuits, prototyping, and hardware systems.
-            </p>
+                <h3>📌 About This Project</h3>
+                <p>
+                    This project is an end-to-end pipeline for building an image classification system that can
+                    recognize
+                    and
+                    classify electronic components.
+                    It covers the entire workflow — from <strong>data collection, data cleaning, training, evaluation,
+                        and
+                        deployment</strong> to <strong>API integration with a live demo</strong>.
+                </p>
+                <p>
+                    The model is designed to classify <strong>20 different types of commonly used electronic
+                        components</strong>
+                    in circuits, prototyping, and hardware systems.
+                </p>
 
-            <h3>Supported Component Classes:</h3>
-            <ol>
-                <li>Resistor</li>
-                <li>Capacitor</li>
-                <li>Diode</li>
-                <li>Transistor</li>
-                <li>IC Chip</li>
-                <li>Relay</li>
-                <li>Switch</li>
-                <li>Transformer</li>
-                <li>LED</li>
-                <li>Connector</li>
-                <li>Potentiometer</li>
-                <li>Fuse</li>
-                <li>Inductor Coil</li>
-                <li>Crystal Oscillator</li>
-                <li>Heat Sink</li>
-                <li>Breadboard</li>
-                <li>Jumper Wire</li>
-                <li>Battery Holder</li>
-                <li>Power Supply Module</li>
-                <li>Microcontroller Board</li>
-            </ol>
-        </div>
-    </section>
+                <h1>Electronic Components Collection (20 Types)</h1>
 
-
-    <!-- Recognizer Section -->
-    <section id="recognizer">
-        <div class="container">
-            <h2>🔌 Try the Recognizer</h2>
-            <p>Upload an image of an electronic component to identify it instantly.</p>
-            <div class="card">
-                <input type="file" id="fileInput" accept="image/*" class="file-input">
-                <img id="preview" class="preview" style="display:none;">
-                <button id="predictBtn">⚡ Predict</button>
-                <div class="result" id="result"></div>
+                <div class="grid">
+                    <div class="card"><img src='/component_images/resistor.jpg'>
+                        <div class="card-name">Resistor</div>
+                    </div>
+                    <div class="card"><img src="/component_images/capacitor.jpg">
+                        <div class="card-name">Capacitor</div>
+                    </div>
+                    <div class="card"><img src="/component_images/diode.jpg">
+                        <div class="card-name">Diode</div>
+                    </div>
+                    <div class="card"><img src="/component_images/transisitor.webp">
+                        <div class="card-name">Transistor</div>
+                    </div>
+                    <div class="card"><img src="/component_images/ic_chip.jpg">
+                        <div class="card-name">IC Chip</div>
+                    </div>
+                    <div class="card"><img src="/component_images/relay.jpg">
+                        <div class="card-name">Relay</div>
+                    </div>
+                    <div class="card"><img src="/component_images/switch.jpeg">
+                        <div class="card-name">Switch</div>
+                    </div>
+                    <div class="card"><img src="/component_images/transformer.jpg">
+                        <div class="card-name">Transformer</div>
+                    </div>
+                    <div class="card"><img src="/component_images/led.jpg">
+                        <div class="card-name">LED</div>
+                    </div>
+                    <div class="card"><img src="/component_images/connector.jpg">
+                        <div class="card-name">Connector</div>
+                    </div>
+                    <div class="card"><img src="/component_images/potentiometer.jpg">
+                        <div class="card-name">Potentiometer</div>
+                    </div>
+                    <div class="card"><img src="/component_images/fuse.jpg">
+                        <div class="card-name">Fuse</div>
+                    </div>
+                    <div class="card"><img src="/component_images/inductor_coil.jpg">
+                        <div class="card-name">Inductor Coil</div>
+                    </div>
+                    <div class="card"><img src="/component_images/crystal_oscillator.jpg">
+                        <div class="card-name">Crystal Oscillator</div>
+                    </div>
+                    <div class="card"><img src="/component_images/heat sink.jpg">
+                        <div class="card-name">Heat Sink</div>
+                    </div>
+                    <div class="card"><img src="/component_images/breadbaord.webp">
+                        <div class="card-name">Breadboard</div>
+                    </div>
+                    <div class="card"><img src="/component_images/jumper_wire.jpg">
+                        <div class="card-name">Jumper Wire</div>
+                    </div>
+                    <div class="card"><img src="/component_images/battery_holder.jpg">
+                        <div class="card-name">Battery Holder</div>
+                    </div>
+                    <div class="card"><img src="/component_images/power_supply_module.png">
+                        <div class="card-name">Power Supply Module</div>
+                    </div>
+                    <div class="card"><img src="/component_images/microcontroler_board.jpg">
+                        <div class="card-name">Microcontroller Board</div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Dataset Section -->
-    <section id="dataset">
-        <h2>📊 Dataset</h2>
-        <p>
-            The dataset was collected from the web using DuckDuckGo search results and cleaned using fastai’s
-            ImageClassifierCleaner.
-            After several iterations and fine-tuning a ResNet34 model, the system achieved
-            <strong>~97% validation accuracy</strong>.
-        </p>
-    </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <h2>ℹ️ About This Project</h2>
-        <p>
-            This project is built with <b>fastai</b> and <b>PyTorch</b> for training,
-            and deployed with <b>Gradio</b> on <b>Hugging Face Spaces</b>.
-            The goal is to help students, hobbyists, and engineers quickly recognize electronic components.
-        </p>
-    </section>
+        <!-- Recognizer Section -->
+        <section id="recognizer">
+            <div class="container">
+                <h2>🔌 Try the Recognizer</h2>
+                <p>Upload an image of an electronic component to identify it instantly.</p>
+                <div class="card">
+                    <input type="file" id="fileInput" accept="image/*" class="file-input">
+                    <img id="preview" class="preview" style="display:none;">
+                    <button id="predictBtn">⚡ Predict</button>
+                    <div class="result" id="result"></div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>📬 Contact</h2>
-        <p>If you'd like to collaborate or learn more, reach out via
-            <a href="mailto:mdfaisalahmed025@gmail.com">Email</a>.
-        </p>
-    </section>
+        <!-- Dataset Section -->
+        <section id="dataset">
+            <h2>📊 Dataset</h2>
+            <p>
+                The dataset was collected from the web using DuckDuckGo search results and cleaned using fastai’s
+                ImageClassifierCleaner.
+                After several iterations and fine-tuning a ResNet34 model, the system achieved
+                <strong>~97% validation accuracy</strong>.
+            </p>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2>ℹ️ About This Project</h2>
+            <p>
+                This project is built with <b>fastai</b> and <b>PyTorch</b> for training,
+                and deployed with <b>Gradio</b> on <b>Hugging Face Spaces</b>.
+                The goal is to help students, hobbyists, and engineers quickly recognize electronic components.
+            </p>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>📬 Contact</h2>
+            <p>If you'd like to collaborate or learn more, reach out via
+                <a href="mailto:mdfaisalahmed025@gmail.com">Email</a>.
+            </p>
+        </section>
+    </main>
 
     <!-- Footer -->
     <footer>
