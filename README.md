@@ -168,20 +168,29 @@ This project showcases a practical workflow for turning an idea into a real, use
 
 Follow the steps below to set up and run the **Electronic Component Recognizer** project on your local machine.
 
-## Clone the Repository
+# Run and Installation of the Project
 
-git clone https://github.com/mdfaisalahmed025/Electronic-Component-Recognizer.git
-cd Electronic-Component-Recognizer
 
-## Install dependencies
+## 1) Clone Repository
 
+```bash
+https://github.com/mdfaisalahmed025/Global-University-Insights.git
+cd global-university-Insights
+```
+
+
+## 4) Install dependencies
+
+```bash
 pip install -U pip
 pip install -r requirements.txt
+```
 
+---
 
 # 📞 Contact / Author
 
-**Project Maintainer:** Md Faisal Ahmed
-**Portfolio:** [mdfaisalahmed.online](https://mdfaisalahmed.online/)
-**GitHub:** [@mdfaisalahmed025](https://github.com/mdfaisalahmed025)
+**Project Maintainer:** Md Faisal Ahmed  
+**Portfolio:** [mdfaisalahmed.online](https://mdfaisalahmed.online/)  
+**GitHub:** [@mdfaisalahmed025](https://github.com/mdfaisalahmed025)  
 
